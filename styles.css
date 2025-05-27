@@ -28,7 +28,7 @@ body::before {
 
 /* Glassmorphism Sidebar */
 .sidebar {
-    width: 260px;
+    width: 300px;
     background: #fff;
     border-right: 1px solid #e0e0e0;
     display: flex;
@@ -146,7 +146,7 @@ body::before {
 
 /* Main Content & Cards */
 .main-content {
-    margin-left: 270px;
+    margin-left: 300px;
     flex: 1;
     display: flex;
     flex-direction: column;
