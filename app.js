@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     .then(res => res.text())
                     .then(html => {
                         pageContent.innerHTML = html;
-                        window.scrollTo(0, 0);
+                        setTimeout(() => pageContent.classList.add('loaded'), 10);
                     });
             }
             // Close sidebar on mobile after navigation
@@ -34,6 +34,11 @@ document.addEventListener('DOMContentLoaded', function() {
     submenus.forEach(menu => {
         menu.addEventListener('click', function(e) {
             e.stopPropagation();
+            // Close all other submenus
+            submenus.forEach(m => {
+                if (m !== this) m.classList.remove('open');
+            });
+            // Toggle this submenu
             this.classList.toggle('open');
         });
     });
@@ -63,6 +68,23 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(res => res.text())
             .then(html => {
                 pageContent.innerHTML = html;
+                setTimeout(() => pageContent.classList.add('loaded'), 10);
             });
     }
+
+    // Fade in page content on navigation
+    navItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            pageContent.classList.remove('loaded');
+            const page = this.getAttribute('data-page');
+            if (page) {
+                fetch(page)
+                    .then(res => res.text())
+                    .then(html => {
+                        pageContent.innerHTML = html;
+                        setTimeout(() => pageContent.classList.add('loaded'), 10);
+                    });
+            }
+        });
+    });
 }); 

@@ -1,62 +1,50 @@
-@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Titillium Web', Arial, sans-serif;
-    background: #f2f2f2;
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(120deg, #e0e7ff 0%, #f7fafd 100%);
     color: #222;
-}
-
-.container {
-    display: flex;
     min-height: 100vh;
+    position: relative;
 }
 
-/* EVM Logo Styles */
-.evm-logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 32px 0 24px 0;
+/* Animated background gradient */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+    opacity: 0.18;
+    z-index: 0;
+    pointer-events: none;
+    animation: bg-gradient-move 16s ease-in-out infinite alternate;
 }
-.evm-logo-circle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    background: #1780c2;
-    color: #fff;
-    border-radius: 50%;
-    font-size: 2rem;
-    font-weight: 700;
-    font-family: 'Titillium Web', Arial, sans-serif;
-    margin-right: 8px;
-    letter-spacing: 0;
-}
-.evm-logo-vm {
-    color: #1780c2;
-    font-size: 2rem;
-    font-weight: 700;
-    font-family: 'Titillium Web', Arial, sans-serif;
-    letter-spacing: 2px;
+@keyframes bg-gradient-move {
+    0% { filter: blur(0px); }
+    100% { filter: blur(12px); }
 }
 
-/* Sidebar Styles */
+/* Glassmorphism Sidebar */
 .sidebar {
-    width: 260px;
-    background: #fff;
-    border-right: 1px solid #e0e0e0;
-    display: flex;
-    flex-direction: column;
-    padding-top: 0;
+    width: 270px;
+    background: rgba(255,255,255,0.22);
+    border-right: 2.5px solid rgba(161,196,253,0.45);
+    box-shadow: 8px 0 32px 0 rgba(23,128,194,0.13), 0 0 32px 0 #b3e5fc44;
+    backdrop-filter: blur(18px) saturate(1.2);
+    -webkit-backdrop-filter: blur(18px) saturate(1.2);
+    border-radius: 0 28px 28px 0;
+    padding-top: 28px;
     position: fixed;
     left: 0;
     top: 0;
     bottom: 0;
     z-index: 10;
     min-height: 100vh;
+    transition: box-shadow 0.3s, background 0.3s;
+    display: flex;
+    flex-direction: column;
 }
 .logo {
     display: none !important;
@@ -70,75 +58,120 @@ body {
 }
 .sidebar-nav ul {
     list-style: none;
-    padding: 0;
+    padding: 24px 0 24px 0;
     margin: 0;
 }
 .nav-item {
     display: flex;
     align-items: center;
-    gap: 14px;
-    padding: 12px 28px;
-    font-size: 18px;
-    color: #4a5a6a;
+    gap: 16px;
+    padding: 16px 36px;
+    font-size: 19px;
+    color: #3a4a6a;
     cursor: pointer;
-    border-radius: 8px 0 0 8px;
-    transition: background 0.2s, color 0.2s;
+    border-radius: 14px;
+    transition: background 0.22s, color 0.22s, box-shadow 0.22s, transform 0.18s;
     position: relative;
     font-weight: 500;
-    margin-bottom: 2px;
+    margin-bottom: 12px;
+    margin-right: 16px;
+    margin-left: 16px;
+    box-shadow: 0 1px 8px rgba(23,128,194,0.07);
+    background: rgba(255,255,255,0.18);
 }
-.nav-item .icon {
-    font-size: 20px;
-    width: 24px;
-    text-align: center;
-}
-.nav-item.active, .nav-item:hover {
-    background: #1780c2;
+.sidebar-nav > ul > .nav-item.active,
+.sidebar-nav > ul > .nav-item:hover {
+    background: linear-gradient(90deg, #1780c2 70%, #4fc3f7 100%);
     color: #fff;
     font-weight: 700;
+    box-shadow: 0 8px 32px 0 #1780c244;
+    transform: scale(1.045);
 }
 .nav-item.active .icon, .nav-item:hover .icon {
     color: #fff;
+    filter: drop-shadow(0 0 6px #4fc3f7);
+    animation: sidebar-icon-bounce 0.5s;
+}
+.nav-item .icon {
+    font-size: 24px;
+    width: 32px;
+    text-align: center;
+    transition: color 0.18s, transform 0.18s, filter 0.18s;
+}
+.nav-item.has-submenu {
+    position: relative;
 }
 .nav-item.has-submenu > .icon:after {
     content: '\25BC';
     font-size: 10px;
     margin-left: 8px;
     color: #8b98a9;
+    transition: transform 0.2s;
+}
+.nav-item.has-submenu.open > .icon:after {
+    transform: rotate(180deg);
 }
 .submenu {
     display: none;
     flex-direction: column;
-    margin-left: 18px;
+    margin-left: 0;
+    padding-left: 0;
     background: none;
-    padding: 0;
-    width: 100%;
+    border-left: none;
+    box-shadow: none;
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(-8px);
+    transition: opacity 0.25s, max-height 0.25s, transform 0.25s;
 }
 .nav-item.has-submenu.open > .submenu {
     display: flex;
+    opacity: 1;
+    max-height: 500px;
+    transform: translateY(0);
 }
 .submenu .nav-item {
     font-size: 16px;
-    padding: 8px 28px;
+    font-weight: 700;
+    padding: 10px 0 10px 40px;
     background: none;
-    color: #4a5a6a;
-    font-weight: 500;
+    color: #222;
     width: 100%;
     box-sizing: border-box;
+    border-radius: 6px;
+    margin-bottom: 6px;
+    border-left: 5px solid transparent;
+    transition: background 0.2s, border-color 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 4px rgba(23,128,194,0.04);
 }
-.submenu .nav-item.active, .submenu .nav-item:hover {
+.submenu .nav-item.active,
+.submenu .nav-item:hover {
     color: #1780c2;
-    background: #eaf4fb;
+    background: #fff3cd;
+    border-left: 5px solid #ffb300;
+    box-shadow: 0 2px 8px rgba(23,128,194,0.10);
 }
 
-/* Main Content & Header */
+/* Section separator for sidebar */
+.sidebar-nav ul li:not(:last-child)::after {
+    content: '';
+    display: block;
+    height: 1.5px;
+    margin: 10px 0 0 0;
+    background: linear-gradient(90deg, #e0e0e0 60%, #fff0 100%);
+    opacity: 0.5;
+}
+
+/* Main Content & Cards */
 .main-content {
-    margin-left: 260px;
+    margin-left: 270px;
     flex: 1;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background: #f4f7fa;
+    background: transparent;
+    z-index: 1;
+    position: relative;
 }
 .main-header {
     display: flex;
@@ -199,15 +232,26 @@ body {
     flex: 1;
     background: #f4f7fa;
     min-height: 800px;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+#page-content.loaded {
+    opacity: 1;
 }
 
 /* Card/Panel Styles */
 .card, .panel, .content-box {
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    padding: 32px;
-    margin-bottom: 32px;
+    background: rgba(255,255,255,0.92);
+    border-radius: 22px;
+    box-shadow: 0 6px 32px rgba(23,128,194,0.10), 0 1.5px 8px #b3e5fc33;
+    padding: 40px 36px 36px 36px;
+    margin-bottom: 36px;
+    animation: card-fade-in 0.7s cubic-bezier(.4,0,.2,1);
+    transition: box-shadow 0.2s, background 0.2s;
+}
+@keyframes card-fade-in {
+    0% { opacity: 0; transform: translateY(32px) scale(0.98); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 /* Table Styles */
@@ -236,22 +280,43 @@ tr:last-child td {
     border-bottom: none;
 }
 
-/* Button Styles */
+/* Buttons */
 .btn, button, input[type="submit"] {
     background: linear-gradient(90deg, #ffb300 60%, #ffd54f 100%);
     color: #fff;
     border: none;
-    border-radius: 8px;
-    padding: 12px 32px;
-    font-size: 18px;
+    border-radius: 12px;
+    padding: 14px 36px;
+    font-size: 19px;
     font-weight: 600;
     cursor: pointer;
     box-shadow: 0 4px 18px 0 #ffb30033;
-    transition: background 0.2s, box-shadow 0.2s;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.18s;
+    position: relative;
+    overflow: hidden;
 }
 .btn:hover, button:hover, input[type="submit"]:hover {
-    background: #ffb300;
-    box-shadow: 0 6px 24px 0 #ffb30044;
+    background: linear-gradient(90deg, #ffd54f 60%, #ffb300 100%);
+    box-shadow: 0 8px 32px 0 #ffb30044;
+    transform: scale(1.04);
+}
+/* Button ripple effect */
+.btn:after, button:after, input[type="submit"]:after {
+    content: '';
+    position: absolute;
+    left: 50%; top: 50%;
+    width: 0; height: 0;
+    background: rgba(255,179,0,0.3);
+    border-radius: 100%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s, height 0.4s, opacity 0.8s;
+    opacity: 0;
+    pointer-events: none;
+}
+.btn:active:after, button:active:after, input[type="submit"]:active:after {
+    width: 200px; height: 200px;
+    opacity: 1;
+    transition: 0s;
 }
 
 /* Form Styles */
@@ -596,4 +661,107 @@ table {
         padding: 8px 2px;
         font-size: 14px;
     }
+}
+
+/* 1. Sidebar icon bounce animation */
+.nav-item:hover .icon, .nav-item.active .icon {
+    animation: sidebar-icon-bounce 0.5s;
+}
+@keyframes sidebar-icon-bounce {
+    0%   { transform: scale(1) rotate(0deg);}
+    30%  { transform: scale(1.2) rotate(-10deg);}
+    60%  { transform: scale(0.95) rotate(10deg);}
+    100% { transform: scale(1) rotate(0deg);}
+}
+
+/* 2. Button ripple effect */
+.btn, button, input[type="submit"] {
+    position: relative;
+    overflow: hidden;
+}
+.btn:after, button:after, input[type="submit"]:after {
+    content: '';
+    position: absolute;
+    left: 50%; top: 50%;
+    width: 0; height: 0;
+    background: rgba(255,179,0,0.3);
+    border-radius: 100%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s, height 0.4s, opacity 0.8s;
+    opacity: 0;
+    pointer-events: none;
+}
+.btn:active:after, button:active:after, input[type="submit"]:active:after {
+    width: 200px; height: 200px;
+    opacity: 1;
+    transition: 0s;
+}
+
+/* 3. Floating Action Button (FAB) with pulse */
+.fab {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ffb300 60%, #ffd54f 100%);
+    color: #fff;
+    font-size: 2.5rem;
+    border: none;
+    box-shadow: 0 6px 24px #ffb30055;
+    cursor: pointer;
+    z-index: 1003;
+    animation: fab-pulse 2s infinite;
+    transition: background 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@keyframes fab-pulse {
+    0% { box-shadow: 0 0 0 0 #ffb30055; }
+    70% { box-shadow: 0 0 0 16px #ffb30011; }
+    100% { box-shadow: 0 0 0 0 #ffb30055; }
+}
+.fab:hover {
+    background: #ffb300;
+}
+
+/* 4. Subtle animated background */
+body::before {
+    content: '';
+    position: fixed;
+    top: -100px; left: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle at 30% 30%, #4fc3f7 0%, transparent 70%);
+    opacity: 0.12;
+    z-index: 0;
+    animation: bg-move 12s linear infinite alternate;
+    pointer-events: none;
+}
+@keyframes bg-move {
+    0% { transform: translate(0,0);}
+    100% { transform: translate(80px, 60px);}
+}
+
+/* 5. Page content fade-in effect */
+#page-content {
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+#page-content.loaded {
+    opacity: 1;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', Arial, sans-serif;
+    font-weight: 700;
+    color: #1780c2;
+    margin-top: 0;
+    margin-bottom: 18px;
+    letter-spacing: 0.5px;
+}
+.card h2, .panel h2, .content-box h2 {
+    font-size: 2.1rem;
+    margin-bottom: 18px;
 } 
