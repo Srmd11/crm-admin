@@ -746,4 +746,36 @@ h1, h2, h3, h4, h5, h6 {
 .card h2, .panel h2, .content-box h2 {
     font-size: 2.1rem;
     margin-bottom: 18px;
+}
+
+/* EVM Logo Styles - Font and Color Only */
+.evm-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 32px 0 24px 0;
+    gap: 10px;
+}
+.evm-logo-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    background: #1780c2;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 2.3rem;
+    font-weight: 800;
+    font-family: 'Poppins', Arial, sans-serif;
+    letter-spacing: 0;
+    box-shadow: 0 2px 8px #1780c233;
+}
+.evm-logo-vm {
+    color: #1780c2;
+    font-size: 2.3rem;
+    font-weight: 800;
+    font-family: 'Poppins', Arial, sans-serif;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 8px #1780c211;
 } 
