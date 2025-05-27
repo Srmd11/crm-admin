@@ -28,23 +28,21 @@ body::before {
 
 /* Glassmorphism Sidebar */
 .sidebar {
-    width: 270px;
-    background: rgba(255,255,255,0.22);
-    border-right: 2.5px solid rgba(161,196,253,0.45);
-    box-shadow: 8px 0 32px 0 rgba(23,128,194,0.13), 0 0 32px 0 #b3e5fc44;
-    backdrop-filter: blur(18px) saturate(1.2);
-    -webkit-backdrop-filter: blur(18px) saturate(1.2);
-    border-radius: 0 28px 28px 0;
-    padding-top: 28px;
+    width: 260px;
+    background: #fff;
+    border-right: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    padding-top: 0;
     position: fixed;
     left: 0;
     top: 0;
     bottom: 0;
     z-index: 10;
     min-height: 100vh;
-    transition: box-shadow 0.3s, background 0.3s;
-    display: flex;
-    flex-direction: column;
+    box-shadow: none;
+    border-radius: 0;
+    transition: none;
 }
 .logo {
     display: none !important;
@@ -58,45 +56,45 @@ body::before {
 }
 .sidebar-nav ul {
     list-style: none;
-    padding: 24px 0 24px 0;
+    padding: 0;
     margin: 0;
 }
 .nav-item {
     display: flex;
     align-items: center;
-    gap: 16px;
-    padding: 16px 36px;
-    font-size: 19px;
-    color: #3a4a6a;
+    gap: 14px;
+    padding: 12px 28px;
+    font-size: 18px;
+    color: #4a5a6a;
     cursor: pointer;
-    border-radius: 14px;
-    transition: background 0.22s, color 0.22s, box-shadow 0.22s, transform 0.18s;
+    border-radius: 8px 0 0 8px;
+    transition: background 0.2s, color 0.2s;
     position: relative;
     font-weight: 500;
-    margin-bottom: 12px;
-    margin-right: 16px;
-    margin-left: 16px;
-    box-shadow: 0 1px 8px rgba(23,128,194,0.07);
-    background: rgba(255,255,255,0.18);
+    margin-bottom: 2px;
+    margin-right: 0;
+    margin-left: 0;
+    box-shadow: none;
+    background: none;
 }
 .sidebar-nav > ul > .nav-item.active,
 .sidebar-nav > ul > .nav-item:hover {
-    background: linear-gradient(90deg, #1780c2 70%, #4fc3f7 100%);
+    background: #1780c2;
     color: #fff;
     font-weight: 700;
-    box-shadow: 0 8px 32px 0 #1780c244;
-    transform: scale(1.045);
+    box-shadow: none;
+    transform: none;
 }
 .nav-item.active .icon, .nav-item:hover .icon {
     color: #fff;
-    filter: drop-shadow(0 0 6px #4fc3f7);
-    animation: sidebar-icon-bounce 0.5s;
+    filter: none;
+    animation: none;
 }
 .nav-item .icon {
-    font-size: 24px;
-    width: 32px;
+    font-size: 20px;
+    width: 24px;
     text-align: center;
-    transition: color 0.18s, transform 0.18s, filter 0.18s;
+    transition: color 0.18s;
 }
 .nav-item.has-submenu {
     position: relative;
@@ -142,15 +140,8 @@ body::before {
     background: #eaf4fb;
     border-left: 4px solid #ffb300;
 }
-
-/* Section separator for sidebar */
 .sidebar-nav ul li:not(:last-child)::after {
-    content: '';
-    display: block;
-    height: 1.5px;
-    margin: 10px 0 0 0;
-    background: linear-gradient(90deg, #e0e0e0 60%, #fff0 100%);
-    opacity: 0.5;
+    content: none;
 }
 
 /* Main Content & Cards */
