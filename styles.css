@@ -112,6 +112,7 @@ body {
     margin-left: 18px;
     background: none;
     padding: 0;
+    width: 100%;
 }
 .nav-item.has-submenu.open > .submenu {
     display: flex;
@@ -122,6 +123,8 @@ body {
     background: none;
     color: #4a5a6a;
     font-weight: 500;
+    width: 100%;
+    box-sizing: border-box;
 }
 .submenu .nav-item.active, .submenu .nav-item:hover {
     color: #1780c2;
@@ -320,18 +323,144 @@ label {
 
 /* Responsive */
 @media (max-width: 1100px) {
-    .sidebar { width: 60px; }
-    .main-content { margin-left: 60px; }
-    .sidebar-nav ul li .icon { margin-right: 0; }
-    .sidebar-nav ul li span:not(.icon) { display: none; }
-    .evm-logo-vm { display: none; }
-    .evm-logo { margin: 16px 0 16px 0; }
+    .sidebar { 
+        width: 260px;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+    .sidebar.open {
+        transform: translateX(0);
+    }
+    .main-content { 
+        margin-left: 0;
+        width: 100%;
+    }
+    .sidebar-nav ul li .icon { 
+        margin-right: 14px; 
+    }
+    .sidebar-nav ul li span:not(.icon) { 
+        display: inline-block; 
+    }
+    .evm-logo-vm { 
+        display: inline-block; 
+    }
+    .evm-logo { 
+        margin: 32px 0 24px 0; 
+    }
 }
+
 @media (max-width: 800px) {
-    .sidebar { display: none; }
-    .main-content { margin-left: 0; }
-    .main-header { padding: 8px 8px; }
-    #page-content { padding: 8px; }
+    .sidebar { 
+        display: block;
+        width: 260px;
+    }
+    .main-content { 
+        margin-left: 0;
+        width: 100%;
+    }
+    .main-header { 
+        padding: 12px 16px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .search-bar {
+        flex: 1 1 100%;
+        margin-right: 0;
+        order: 2;
+    }
+    .header-title {
+        font-size: 24px;
+        order: 1;
+    }
+    .header-actions {
+        order: 3;
+    }
+    #page-content { 
+        padding: 16px;
+    }
+    .card, .panel, .content-box {
+        padding: 16px;
+        margin-bottom: 16px;
+    }
+    table {
+        min-width: 100%;
+        font-size: 14px;
+    }
+    th, td {
+        padding: 8px;
+        white-space: nowrap;
+    }
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 480px) {
+    .main-header {
+        padding: 8px;
+    }
+    .header-title {
+        font-size: 20px;
+    }
+    .card, .panel, .content-box {
+        padding: 12px;
+        margin-bottom: 12px;
+    }
+    .btn, button, input[type="submit"] {
+        padding: 8px 16px;
+        font-size: 16px;
+    }
+    input[type="text"], input[type="email"], input[type="number"], select, textarea {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+    th {
+        font-size: 14px;
+    }
+    td {
+        font-size: 13px;
+    }
+}
+
+/* Ensure proper viewport scaling */
+@viewport {
+    width: device-width;
+    zoom: 1.0;
+}
+
+/* Prevent horizontal scroll on mobile */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+/* Improve table scrolling on mobile */
+.table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -16px;
+    padding: 0 16px;
+}
+
+/* Improve touch targets */
+button, 
+.btn,
+input[type="submit"],
+.nav-item {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+/* Improve form elements on mobile */
+select,
+input[type="text"],
+input[type="email"],
+input[type="number"],
+textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-size: 16px; /* Prevents iOS zoom on focus */
 }
 
 html, body {
