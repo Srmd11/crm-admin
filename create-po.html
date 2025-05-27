@@ -1,0 +1,87 @@
+<div class="card">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+        <div style="flex: 1;">
+            <h2 class="text-blue">Billing Details</h2>
+            <div style="margin-bottom: 18px;">
+                <label>Seller:</label> Hundia
+            </div>
+            <div style="margin-bottom: 18px;">
+                <label>Buyer:</label>
+                <select><option>[Distributor Name]</option></select>
+            </div>
+            <div style="margin-bottom: 18px;">
+                <label>Location:</label>
+                <select><option>[Address]</option></select>
+            </div>
+            <div style="margin-bottom: 18px;">
+                <label>GSTIN:</label> [Customer GSTIN]
+            </div>
+            <div style="margin-bottom: 18px;">
+                <label>Credit Limit/Used:</label> [XXXXXXXX/XXXXXXXX]
+            </div>
+            <div style="margin-bottom: 18px;">
+                <label>Credit Days/Remaining:</label> [XXXX/XXXX]
+            </div>
+        </div>
+        <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+            <div style="border: 2px dashed #1780c2; border-radius: 12px; background: #f7fbfd; width: 340px; height: 220px; display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 18px;">
+                <img src="https://picsum.photos/seed/po/80/80" alt="Upload Example" style="width:80px;height:80px;border-radius:8px;margin-bottom:8px;">
+                <div style="font-size: 48px; color: #1780c2; margin-bottom: 8px;">&#8682;</div>
+                <div class="text-blue" style="font-size: 18px; font-weight: 600;">Drag & Drop File</div>
+                <div style="margin: 8px 0; color: #8b98a9;">or</div>
+                <button class="btn" style="width: 120px;">Browse</button>
+                <div style="font-size: 12px; color: #8b98a9; margin-top: 8px;">Only .xls and .csv files with max size of 5mb</div>
+                <a href="#" style="font-size: 12px; color: #1780c2; margin-top: 4px;">Download Sample/Template</a>
+            </div>
+            <button class="btn" style="margin-top: 12px;">Add PO</button>
+        </div>
+    </div>
+</div>
+<div class="card">
+    <h2 class="text-blue">Inventory</h2>
+    <div style="overflow-x: auto;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Part Code</th>
+                    <th>Part Name</th>
+                    <th>Quantity</th>
+                    <th>Stock Availability</th>
+                    <th>MOQ</th>
+                    <th>Estimated Time of Delivery</th>
+                    <th>Basic Purchase Rate</th>
+                    <th>Discount Allotted</th>
+                    <th>Total Taxable Amount</th>
+                    <th>HSN Code</th>
+                    <th>GST Rate</th>
+                    <th>In-Transit Quantity</th>
+                    <th>Back Order Quantity</th>
+                    <th>Net Rate (Including GST)</th>
+                    <th>Remarks</th>
+                    <th>Bill Me When Stock Arrives</th>
+                    <th>Offer If Any</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>xx</td><td>xxx</td><td><input type="number" value="1000" style="width: 80px;"></td><td>Yes</td><td>1000</td><td>dd/mm/yyy</td><td>1,000</td><td>xx%</td><td>xx,xxx</td><td>xx,xxx</td><td>xx%</td><td>x,xxx</td><td>x,xxx</td><td>Rs.XX,XXX</td><td>xxxxxxxxxxxxxx</td><td><input type="checkbox"></td><td>Yes <button class="btn" style="padding: 4px 12px; font-size: 14px;">Apply</button></td><td><button style="background:#4caf50; color:#fff; border-radius:50%; width:28px; height:28px;">+</button></td>
+                </tr>
+                <tr>
+                    <td>xx</td><td>xxx</td><td><input type="number" value="1000" style="width: 80px;"></td><td>Short</td><td>1000</td><td>dd/mm/yyy</td><td>1,000</td><td>xx%</td><td>xx,xxx</td><td>xx,xxx</td><td>xx%</td><td>x,xxx</td><td>x,xxx</td><td>Rs.XX,XXX</td><td>xxxxxxxxxxxxxx</td><td><input type="checkbox"></td><td>No</td><td><button style="background:#f44336; color:#fff; border-radius:50%; width:28px; height:28px;">x</button></td>
+                </tr>
+                <tr>
+                    <td>xx</td><td>xxx</td><td><input type="number" value="500" style="width: 80px;"></td><td>Yes</td><td>500</td><td>dd/mm/yyy</td><td>1,000</td><td>xx%</td><td>xx,xxx</td><td>xx,xxx</td><td>xx%</td><td>x,xxx</td><td>x,xxx</td><td>Rs.XX,XXX</td><td>xxxxxxxxxxxxxx</td><td><input type="checkbox"></td><td>Yes <button class="btn" style="padding: 4px 12px; font-size: 14px;">Apply</button></td><td><button style="background:#f44336; color:#fff; border-radius:50%; width:28px; height:28px;">x</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="display: flex; justify-content: space-between; margin-top: 18px;">
+        <div><b>Total Quantity</b></div>
+        <div><b>Total Taxable Amount</b></div>
+        <div><b>Total Net Amount</b></div>
+    </div>
+    <div style="text-align: right; margin-top: 18px;">
+        <button class="btn">Submit</button>
+    </div>
+</div> 

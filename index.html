@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVM Admin and Agent Screen</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="evm-logo">
+                <span class="evm-logo-circle">E</span>
+                <span class="evm-logo-vm">VM</span>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="nav-item active" data-page="dashboard.html"><span class="icon">🏠</span>Dashboard</li>
+                    <li class="nav-item" data-page="create-po.html"><span class="icon">📝</span>Create PO</li>
+                    <li class="nav-item" data-page="po-history.html"><span class="icon">📜</span>PO History</li>
+                    <li class="nav-item" data-page="invoice-history.html"><span class="icon">🧾</span>Invoice History</li>
+                    <li class="nav-item" data-page="stock-details.html"><span class="icon">📦</span>Stock Details</li>
+                    <li class="nav-item" data-page="price-list.html"><span class="icon">💲</span>Price List</li>
+                    <li class="nav-item has-submenu"><span class="icon">📚</span>Ledger & Balances
+                        <ul class="submenu">
+                            <li class="nav-item" data-page="ledger.html">Ledger</li>
+                            <li class="nav-item" data-page="outstanding.html">Outstanding</li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" data-page="profile.html"><span class="icon">👤</span>Profile</li>
+                    <li class="nav-item has-submenu"><span class="icon">🎁</span>Promotions & Offers
+                        <ul class="submenu">
+                            <li class="nav-item" data-page="promotions.html">Promotions & Offers</li>
+                            <li class="nav-item" data-page="add-promotion.html">Add New Promotions & Offers</li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-submenu"><span class="icon">📰</span>News & Engagements
+                        <ul class="submenu">
+                            <li class="nav-item" data-page="news.html">News & Engagements</li>
+                            <li class="nav-item" data-page="add-news.html">Add New News & Engagements</li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-submenu"><span class="icon">🎯</span>Incentives & Targets
+                        <ul class="submenu">
+                            <li class="nav-item" data-page="incentives.html">Incentives & Targets</li>
+                            <li class="nav-item" data-page="add-incentive.html">Add New Incentives & Targets</li>
+                            <li class="nav-item" data-page="incentive-templates.html">Incentives & Targets Templates</li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-submenu"><span class="icon">💬</span>Support & Feedbacks
+                        <ul class="submenu">
+                            <li class="nav-item" data-page="feedback.html">Feedback</li>
+                            <li class="nav-item" data-page="support.html">Support</li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" data-page="brands.html"><span class="icon">🏷️</span>Brands</li>
+                    <li class="nav-item" data-page="category.html"><span class="icon">📁</span>Category</li>
+                    <li class="nav-item" data-page="users.html"><span class="icon">👥</span>Users</li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header class="main-header">
+                <input type="text" class="search-bar" placeholder="Search">
+                <span class="header-title">Admin and Agent Screen</span>
+                <div class="header-actions">
+                    <span class="notification-icon">🔔</span>
+                    <span class="user-avatar">A</span>
+                </div>
+            </header>
+            <section id="page-content">
+                <!-- Dynamic content will be loaded here -->
+            </section>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html> 

@@ -1,0 +1,34 @@
+<div class="card" style="max-width: 700px;">
+    <h2 class="text-blue">Add Offers</h2>
+    <form>
+        <div style="display: flex; gap: 18px;">
+            <div style="flex: 1;">
+                <label>Title</label>
+                <input type="text" placeholder="Name of the offer/promotion">
+            </div>
+        </div>
+        <div style="display: flex; gap: 18px;">
+            <div style="flex: 1;">
+                <label>Month</label>
+                <div style="display: flex; gap: 8px;">
+                    <input type="date" placeholder="From">
+                    <input type="date" placeholder="To">
+                </div>
+            </div>
+        </div>
+        <div style="display: flex; gap: 18px; align-items: flex-end;">
+            <div style="flex: 1;">
+                <label>Upload Offer/Promotion Image</label>
+                <input type="file" style="display: none;" id="promo-img">
+                <label for="promo-img" class="btn" style="display: inline-block; cursor: pointer;">Upload jpg/png</label>
+            </div>
+        </div>
+        <div style="margin-top: 18px;">
+            <label>TnC</label>
+            <textarea placeholder="Description" rows="3"></textarea>
+        </div>
+        <div style="text-align: right; margin-top: 32px;">
+            <button class="btn" type="submit">Submit</button>
+        </div>
+    </form>
+</div> 
