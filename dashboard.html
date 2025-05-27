@@ -75,39 +75,46 @@
         </table>
     </div>
     <script>
-        // Chart.js sample data
+        // Chart.js realistic sample data
+        // 1. POs & Invoices Over Time (monthly trend)
         new Chart(document.getElementById('chart-po-invoice'), {
             type: 'line',
             data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
                 datasets: [
-                    { label: 'POs', data: [12, 19, 14, 17, 22, 28], borderColor: '#1780c2', backgroundColor: 'rgba(23,128,194,0.08)', fill: true, tension:0.4 },
-                    { label: 'Invoices', data: [8, 15, 11, 14, 20, 25], borderColor: '#ffb300', backgroundColor: 'rgba(255,179,0,0.08)', fill: true, tension:0.4 }
+                    { label: 'POs', data: [18, 22, 25, 30, 28, 35, 40, 38, 36, 32, 28, 24], borderColor: '#1780c2', backgroundColor: 'rgba(23,128,194,0.08)', fill: true, tension:0.4 },
+                    { label: 'Invoices', data: [15, 20, 23, 27, 25, 32, 36, 34, 33, 29, 25, 22], borderColor: '#ffb300', backgroundColor: 'rgba(255,179,0,0.08)', fill: true, tension:0.4 }
                 ]
             },
             options: { plugins: { legend: { labels: { font: { family: 'Poppins' } } } }, scales: { x: { grid: { display: false } }, y: { grid: { color: '#e0e0e0' } } } }
         });
+        // 2. Stock Distribution (by category)
         new Chart(document.getElementById('chart-stock'), {
             type: 'doughnut',
             data: {
-                labels: ['Electronics', 'Accessories', 'Consumables', 'Others'],
-                datasets: [{ data: [420, 320, 280, 225], backgroundColor: ['#1780c2','#ffb300','#4fc3f7','#ffd54f'] }]
+                labels: ['Electronics', 'Accessories', 'Consumables', 'Cables', 'Adapters', 'Others'],
+                datasets: [{ data: [520, 340, 210, 180, 120, 75], backgroundColor: ['#1780c2','#ffb300','#4fc3f7','#ffd54f','#81c784','#e57373'] }]
             },
             options: { plugins: { legend: { position: 'bottom', labels: { font: { family: 'Poppins' } } } } }
         });
+        // 3. Outstanding vs. Paid (monthly totals)
         new Chart(document.getElementById('chart-outstanding'), {
             type: 'bar',
             data: {
-                labels: ['Outstanding', 'Paid'],
-                datasets: [{ label: 'Amount (₹)', data: [230000, 770000], backgroundColor: ['#ffb300','#1780c2'] }]
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [
+                    { label: 'Outstanding (₹)', data: [180000, 160000, 150000, 140000, 130000, 120000, 110000, 105000, 100000, 95000, 90000, 85000], backgroundColor: '#ffb300' },
+                    { label: 'Paid (₹)', data: [120000, 140000, 155000, 160000, 170000, 180000, 190000, 195000, 200000, 205000, 210000, 215000], backgroundColor: '#1780c2' }
+                ]
             },
-            options: { plugins: { legend: { display: false } }, scales: { x: { grid: { display: false } }, y: { grid: { color: '#e0e0e0' } } } }
+            options: { plugins: { legend: { labels: { font: { family: 'Poppins' } } } }, scales: { x: { grid: { display: false } }, y: { grid: { color: '#e0e0e0' } } } }
         });
+        // 4. User Roles (distribution)
         new Chart(document.getElementById('chart-users'), {
             type: 'pie',
             data: {
-                labels: ['Distributor', 'Sales Head', 'Sales Agent', 'Others'],
-                datasets: [{ data: [18, 12, 22, 6], backgroundColor: ['#1780c2','#ffb300','#4fc3f7','#ffd54f'] }]
+                labels: ['Distributor', 'Sales Head', 'Sales Agent', 'Support', 'Admin'],
+                datasets: [{ data: [18, 12, 22, 4, 2], backgroundColor: ['#1780c2','#ffb300','#4fc3f7','#ffd54f','#81c784'] }]
             },
             options: { plugins: { legend: { position: 'bottom', labels: { font: { family: 'Poppins' } } } } }
         });
