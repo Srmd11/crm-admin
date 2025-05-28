@@ -152,7 +152,7 @@ body::before { display: none !important; }
     margin: 0;
     background: none;
     border: none;
-    padding: 12px 16px 12px 32px;
+    padding: 12px 16px 12px 24px;
     transition: all 0.2s ease;
     cursor: pointer;
     display: flex;
@@ -160,14 +160,14 @@ body::before { display: none !important; }
     gap: 8px;
     position: relative;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    overflow: visible;
+    text-overflow: clip;
 }
 .submenu .nav-item:hover {
     background: #bbdefb;
     color: #ffb300;
     font-weight: 600;
-    padding-left: 36px;
+    padding-left: 28px;
 }
 .submenu .nav-item .icon {
     font-size: 16px;
@@ -192,6 +192,52 @@ body::before { display: none !important; }
     transform: rotate(180deg);
     color: #ffb300;
     opacity: 1;
+}
+
+/* Specific styles for the three sections */
+.nav-item.has-submenu[data-page="promotions.html"],
+.nav-item.has-submenu[data-page="news.html"],
+.nav-item.has-submenu[data-page="incentives.html"] {
+    background: #f0f7ff;
+}
+
+.nav-item.has-submenu[data-page="promotions.html"] .submenu,
+.nav-item.has-submenu[data-page="news.html"] .submenu,
+.nav-item.has-submenu[data-page="incentives.html"] .submenu {
+    background: #e3f2fd;
+    padding: 8px 0;
+}
+
+.nav-item.has-submenu[data-page="promotions.html"] .submenu .nav-item,
+.nav-item.has-submenu[data-page="news.html"] .submenu .nav-item,
+.nav-item.has-submenu[data-page="incentives.html"] .submenu .nav-item {
+    padding: 12px 16px 12px 24px;
+    overflow: visible;
+    text-overflow: clip;
+    white-space: normal;
+    line-height: 1.4;
+}
+
+.nav-item.has-submenu[data-page="promotions.html"] .submenu .nav-item:hover,
+.nav-item.has-submenu[data-page="news.html"] .submenu .nav-item:hover,
+.nav-item.has-submenu[data-page="incentives.html"] .submenu .nav-item:hover {
+    padding-left: 28px;
+}
+
+/* Mobile optimizations */
+@media (max-width: 576px) {
+    .nav-item.has-submenu[data-page="promotions.html"] .submenu .nav-item,
+    .nav-item.has-submenu[data-page="news.html"] .submenu .nav-item,
+    .nav-item.has-submenu[data-page="incentives.html"] .submenu .nav-item {
+        padding: 12px 16px 12px 20px;
+        font-size: 14px;
+    }
+    
+    .nav-item.has-submenu[data-page="promotions.html"] .submenu .nav-item:hover,
+    .nav-item.has-submenu[data-page="news.html"] .submenu .nav-item:hover,
+    .nav-item.has-submenu[data-page="incentives.html"] .submenu .nav-item:hover {
+        padding-left: 24px;
+    }
 }
 
 .main-content {
