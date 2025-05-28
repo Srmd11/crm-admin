@@ -20,104 +20,35 @@
     </style>
 </head>
 <body>
-    <div class="dashboard-header">
-        <div class="evm-logo">
-            <span class="evm-logo-circle">E</span>
-            <span class="evm-logo-vm">VM</span>
+    <div class="dashboard-header" style="display:none;"></div>
+    <div class="card" style="margin-top:32px;">
+        <h2 class="text-blue">Dashboard</h2>
+        <div class="dashboard-metrics">
+            <div class="metric-card"><div class="metric-title">Total POs</div><div class="metric-value">128</div></div>
+            <div class="metric-card"><div class="metric-title">Invoices</div><div class="metric-value">312</div></div>
+            <div class="metric-card"><div class="metric-title">Stock Items</div><div class="metric-value">1,245</div></div>
+            <div class="metric-card"><div class="metric-title">Users</div><div class="metric-value">58</div></div>
+            <div class="metric-card"><div class="metric-title">Outstanding (₹)</div><div class="metric-value">2.3L</div></div>
         </div>
-        <div>
-            <h1>Welcome, Admin!</h1>
-            <div style="color:#888; font-size:1.1rem;">Here's a quick overview of your EVM portal activity.</div>
+        <div class="dashboard-actions">
+            <button class="btn">Create PO</button>
+            <button class="btn">Add Promotion</button>
+            <button class="btn">Add News</button>
         </div>
-    </div>
-    <div class="dashboard-metrics">
-        <div class="metric-card"><div class="metric-title">Total POs</div><div class="metric-value">128</div></div>
-        <div class="metric-card"><div class="metric-title">Invoices</div><div class="metric-value">312</div></div>
-        <div class="metric-card"><div class="metric-title">Stock Items</div><div class="metric-value">1,245</div></div>
-        <div class="metric-card"><div class="metric-title">Users</div><div class="metric-value">58</div></div>
-        <div class="metric-card"><div class="metric-title">Outstanding (₹)</div><div class="metric-value">2.3L</div></div>
-    </div>
-    <div class="dashboard-actions">
-        <button class="btn">Create PO</button>
-        <button class="btn">Add Promotion</button>
-        <button class="btn">Add News</button>
-    </div>
-    <div class="dashboard-charts">
-        <div class="dashboard-chart-card">
-            <div style="font-weight:600; color:#1780c2; margin-bottom:8px;">POs & Invoices Over Time</div>
-            <canvas id="chart-po-invoice"></canvas>
-        </div>
-        <div class="dashboard-chart-card">
-            <div style="font-weight:600; color:#1780c2; margin-bottom:8px;">Stock Distribution</div>
-            <canvas id="chart-stock"></canvas>
-        </div>
-        <div class="dashboard-chart-card">
-            <div style="font-weight:600; color:#1780c2; margin-bottom:8px;">Outstanding vs. Paid</div>
-            <canvas id="chart-outstanding"></canvas>
-        </div>
-        <div class="dashboard-chart-card">
-            <div style="font-weight:600; color:#1780c2; margin-bottom:8px;">User Roles</div>
-            <canvas id="chart-users"></canvas>
+        <div class="dashboard-table-card">
+            <div style="font-weight:600; color:#1780c2; margin-bottom:8px;">Recent Activity</div>
+            <table style="width:100%; border-collapse:collapse;">
+                <thead style="background:#1780c2; color:#fff;">
+                    <tr><th style="padding:8px 12px;">Type</th><th style="padding:8px 12px;">Details</th><th style="padding:8px 12px;">Date</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding:8px 12px;">PO</td><td>PO #1234 created by Distributor X</td><td>2024-06-01</td></tr>
+                    <tr><td style="padding:8px 12px;">Invoice</td><td>Invoice #5678 paid by Sales Agent Y</td><td>2024-06-02</td></tr>
+                    <tr><td style="padding:8px 12px;">Stock</td><td>Stock updated for Product Z</td><td>2024-06-03</td></tr>
+                    <tr><td style="padding:8px 12px;">Feedback</td><td>Feedback received from User A</td><td>2024-06-03</td></tr>
+                </tbody>
+            </table>
         </div>
     </div>
-    <div class="dashboard-table-card">
-        <div style="font-weight:600; color:#1780c2; margin-bottom:8px;">Recent Activity</div>
-        <table style="width:100%; border-collapse:collapse;">
-            <thead style="background:#f7fafd; color:#1780c2;">
-                <tr><th style="padding:8px 12px;">Type</th><th style="padding:8px 12px;">Details</th><th style="padding:8px 12px;">Date</th></tr>
-            </thead>
-            <tbody>
-                <tr><td style="padding:8px 12px;">PO</td><td>PO #1234 created by Distributor X</td><td>2024-06-01</td></tr>
-                <tr><td style="padding:8px 12px;">Invoice</td><td>Invoice #5678 paid by Sales Agent Y</td><td>2024-06-02</td></tr>
-                <tr><td style="padding:8px 12px;">Stock</td><td>Stock updated for Product Z</td><td>2024-06-03</td></tr>
-                <tr><td style="padding:8px 12px;">Feedback</td><td>Feedback received from User A</td><td>2024-06-03</td></tr>
-            </tbody>
-        </table>
-    </div>
-    <script>
-        // Chart.js realistic sample data
-        // 1. POs & Invoices Over Time (monthly trend)
-        new Chart(document.getElementById('chart-po-invoice'), {
-            type: 'line',
-            data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                datasets: [
-                    { label: 'POs', data: [18, 22, 25, 30, 28, 35, 40, 38, 36, 32, 28, 24], borderColor: '#1780c2', backgroundColor: 'rgba(23,128,194,0.08)', fill: true, tension:0.4 },
-                    { label: 'Invoices', data: [15, 20, 23, 27, 25, 32, 36, 34, 33, 29, 25, 22], borderColor: '#ffb300', backgroundColor: 'rgba(255,179,0,0.08)', fill: true, tension:0.4 }
-                ]
-            },
-            options: { plugins: { legend: { labels: { font: { family: 'Poppins' } } } }, scales: { x: { grid: { display: false } }, y: { grid: { color: '#e0e0e0' } } } }
-        });
-        // 2. Stock Distribution (by category)
-        new Chart(document.getElementById('chart-stock'), {
-            type: 'doughnut',
-            data: {
-                labels: ['Electronics', 'Accessories', 'Consumables', 'Cables', 'Adapters', 'Others'],
-                datasets: [{ data: [520, 340, 210, 180, 120, 75], backgroundColor: ['#1780c2','#ffb300','#4fc3f7','#ffd54f','#81c784','#e57373'] }]
-            },
-            options: { plugins: { legend: { position: 'bottom', labels: { font: { family: 'Poppins' } } } } }
-        });
-        // 3. Outstanding vs. Paid (monthly totals)
-        new Chart(document.getElementById('chart-outstanding'), {
-            type: 'bar',
-            data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                datasets: [
-                    { label: 'Outstanding (₹)', data: [180000, 160000, 150000, 140000, 130000, 120000, 110000, 105000, 100000, 95000, 90000, 85000], backgroundColor: '#ffb300' },
-                    { label: 'Paid (₹)', data: [120000, 140000, 155000, 160000, 170000, 180000, 190000, 195000, 200000, 205000, 210000, 215000], backgroundColor: '#1780c2' }
-                ]
-            },
-            options: { plugins: { legend: { labels: { font: { family: 'Poppins' } } } }, scales: { x: { grid: { display: false } }, y: { grid: { color: '#e0e0e0' } } } }
-        });
-        // 4. User Roles (distribution)
-        new Chart(document.getElementById('chart-users'), {
-            type: 'pie',
-            data: {
-                labels: ['Distributor', 'Sales Head', 'Sales Agent', 'Support', 'Admin'],
-                datasets: [{ data: [18, 12, 22, 4, 2], backgroundColor: ['#1780c2','#ffb300','#4fc3f7','#ffd54f','#81c784'] }]
-            },
-            options: { plugins: { legend: { position: 'bottom', labels: { font: { family: 'Poppins' } } } } }
-        });
-    </script>
 </body>
 </html> 

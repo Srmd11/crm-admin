@@ -87,4 +87,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Update notification icon to use Material Icons
+    const notificationIcon = document.querySelector('.notification-icon');
+    if (notificationIcon) {
+        notificationIcon.classList.add('material-icons-outlined');
+        notificationIcon.textContent = 'notifications_none';
+    }
 }); 
