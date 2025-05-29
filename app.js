@@ -5,6 +5,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const sidebar = document.getElementById('sidebar');
     const sidebarToggle = document.getElementById('sidebar-toggle');
     const sidebarBackdrop = document.getElementById('sidebar-backdrop');
+    const loadingOverlay = document.getElementById('loading-overlay');
+
+    function showLoading() {
+        if (loadingOverlay) loadingOverlay.style.display = 'flex';
+    }
+    function hideLoading() {
+        if (loadingOverlay) loadingOverlay.style.display = 'none';
+    }
 
     // Sidebar navigation
     navItems.forEach(item => {
@@ -14,12 +22,15 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.add('active');
             const page = this.getAttribute('data-page');
             if (page) {
+                showLoading();
                 fetch(page)
                     .then(res => res.text())
                     .then(html => {
                         pageContent.innerHTML = html;
                         setTimeout(() => pageContent.classList.add('loaded'), 10);
-                    });
+                        hideLoading();
+                    })
+                    .catch(() => hideLoading());
             }
             // Close sidebar on mobile after navigation
             if (window.innerWidth <= 900) {
@@ -64,12 +75,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Load default page
     const defaultPage = document.querySelector('.nav-item.active').getAttribute('data-page');
     if (defaultPage) {
+        showLoading();
         fetch(defaultPage)
             .then(res => res.text())
             .then(html => {
                 pageContent.innerHTML = html;
                 setTimeout(() => pageContent.classList.add('loaded'), 10);
-            });
+                hideLoading();
+            })
+            .catch(() => hideLoading());
     }
 
     // Fade in page content on navigation
@@ -78,12 +92,15 @@ document.addEventListener('DOMContentLoaded', function() {
             pageContent.classList.remove('loaded');
             const page = this.getAttribute('data-page');
             if (page) {
+                showLoading();
                 fetch(page)
                     .then(res => res.text())
                     .then(html => {
                         pageContent.innerHTML = html;
                         setTimeout(() => pageContent.classList.add('loaded'), 10);
-                    });
+                        hideLoading();
+                    })
+                    .catch(() => hideLoading());
             }
         });
     });

@@ -89,6 +89,15 @@
         </main>
     </div>
     <button class="fab">+</button>
+    <div id="loading-overlay" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:2000;background:rgba(255,255,255,0.85);backdrop-filter:blur(2px);align-items:center;justify-content:center;">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:18px;">
+        <div class="loader-spinner" style="width:48px;height:48px;border:6px solid #e0e0e0;border-top:6px solid #ffb300;border-radius:50%;animation:spin 1s linear infinite;"></div>
+        <div style="font-size:1.4rem;color:#1780c2;font-weight:600;letter-spacing:1px;">Loading...</div>
+      </div>
+    </div>
     <script src="app.js"></script>
+    <style>
+      @keyframes spin { 0% { transform: rotate(0deg);} 100% { transform: rotate(360deg);} }
+    </style>
 </body>
 </html> 

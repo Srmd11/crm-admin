@@ -63,10 +63,11 @@
         <svg width="48" height="48" fill="none" stroke="#1780c2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:8px;"><path d="M24 36V12"/><path d="M16 20l8-8 8 8"/><rect x="8" y="36" width="32" height="4" rx="2"/></svg>
         <div class="text-blue" style="font-size:18px;font-weight:600;">Drag & Drop File</div>
         <div style="margin:8px 0;color:#8b98a9;">or</div>
-        <button class="btn" style="width:120px;">Browse</button>
+        <button class="btn" id="browse-btn" style="width:120px;">Browse</button>
         <div style="margin:8px 0;color:#8b98a9;">or</div>
         <input type="file" id="product-image-upload" accept="image/*" multiple style="display:none;">
         <label for="product-image-upload" class="btn" style="width:180px;display:inline-block;cursor:pointer;margin-bottom:0;">Upload from Device</label>
+        <div id="selected-files" style="font-size:12px;color:#1780c2;margin-top:4px;"></div>
         <div style="font-size:12px;color:#8b98a9;margin-top:8px;">Only .jpeg, .jpg and .png files with max size of 15mb each</div>
         <a href="#" style="font-size:12px;color:#1780c2;margin-top:4px;">Download Sample/Template</a>
       </div>
@@ -138,4 +139,25 @@ document.getElementById('close-upload-modal').onclick = function() {
 document.getElementById('upload-modal').addEventListener('click', function(e) {
   if(e.target === this) this.style.display = 'none';
 });
+// Make Browse button open file picker
+const browseBtn = document.getElementById('browse-btn');
+const fileInput = document.getElementById('product-image-upload');
+const selectedFilesDiv = document.getElementById('selected-files');
+if (browseBtn && fileInput) {
+  browseBtn.onclick = function(e) {
+    e.preventDefault();
+    fileInput.click();
+  };
+}
+// Show selected file names
+if (fileInput && selectedFilesDiv) {
+  fileInput.onchange = function() {
+    if (fileInput.files.length > 0) {
+      let names = Array.from(fileInput.files).map(f => f.name).join(', ');
+      selectedFilesDiv.textContent = 'Selected: ' + names;
+    } else {
+      selectedFilesDiv.textContent = '';
+    }
+  };
+}
 </script> 
